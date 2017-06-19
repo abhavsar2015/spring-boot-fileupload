@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.apurv.model.UploadModel;
+import com.apurv.model.Metadata;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,7 +27,7 @@ public class RestUploadController {
 
     private final Logger logger = LoggerFactory.getLogger(RestUploadController.class);
 
-    //Save the uploaded file to this folder
+     //Save the uploaded file to this folder
     private static String UPLOADED_FOLDER = "D://demo//";
 
    
@@ -46,26 +46,18 @@ public class RestUploadController {
         if (StringUtils.isEmpty(uploadedFileName)) {
             return new ResponseEntity("please select a file!", HttpStatus.OK);
         }
-
         try {
-
             saveUploadedFiles(Arrays.asList(uploadfiles));
-            
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity("Successfully uploaded - "
                 + uploadedFileName, HttpStatus.OK);
-
     }
-
-  
-
-    //save file
     private void saveUploadedFiles(List<MultipartFile> files) throws IOException {
-
-        for (MultipartFile file : files) {
+    for (MultipartFile file : files) {
 
             if (file.isEmpty()) {
                 continue; 
