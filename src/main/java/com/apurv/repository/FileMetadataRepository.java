@@ -6,10 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionTemplate;
 import com.apurv.model.Metadata;
-
+@Repository
 public class FileMetadataRepository implements FileMetadataRepositoryDef{
 	@PersistenceContext(unitName="serv1")
     public EntityManager em;

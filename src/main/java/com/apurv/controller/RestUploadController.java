@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.apurv.entity.Login;
+
 import com.apurv.model.Metadata;
 import com.apurv.service.FileMetadatServices;
-import com.apurv.services.EmployeeService;
+
 
 import java.io.IOException;
 import java.nio.file.Files;

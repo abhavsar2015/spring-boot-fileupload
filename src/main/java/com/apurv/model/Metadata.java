@@ -15,25 +15,28 @@ import javax.persistence.Table;
 @Entity
 @Table
 @NamedQueries({
-	   @NamedQuery(name="Metadata.findAll",query="SELECT e FROM Metadata e ORDER BY e.title ASC")}) 
+	   @NamedQuery(name="Metadata.findAll",query="SELECT e FROM Metadata e ORDER BY e.CurrentTime ASC")}) 
 public class Metadata implements Serializable {
 	@Id
 	@GenericGenerator(name="customUUID", strategy="uuid2")
 	@GeneratedValue(generator="customUUID")
     private String FileId;
-	private String extraField;
+	private String CurrentTime;
     private String files;
     public Metadata(){}
     
-    public String getExtraField() {
-        return extraField;
-    }
+   
+    public String getCurrentTime() {
+		return CurrentTime;
+	}
 
-    public void setExtraField(String extraField) {
-        this.extraField = extraField;
-    }
-    
-    public String getFileId() {
+
+	public void setCurrentTime(String currentTime) {
+		CurrentTime = currentTime;
+	}
+
+
+	public String getFileId() {
 		return FileId;
 	}
     
